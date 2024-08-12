@@ -1,0 +1,45 @@
+.card{
+    width: 180px;
+    height: 340px;
+    box-shadow: 1px 4px 3px grey;
+    border-radius: 10px;
+    margin: 10px;
+    
+}
+.card .image{
+    width: 150px;
+    height: 200px;
+    
+}
+.card:hover{
+    transition: all 0.3s;
+    box-shadow: 1px 6px 5px rgb(82, 81, 81);
+    cursor: pointer;
+}
+.card-button{
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color:mediumpurple;
+}
+.card-button:hover{
+    background-color: rgb(111, 75, 183);
+    cursor: pointer;
+}
+.container{
+    margin-top: 150px;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.row-pd-img{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    height: 500px;
+}
+.row-pd-desc{
+
+    margin-right: 10px;
+    height: 500px;
+}
