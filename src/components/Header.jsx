@@ -5,7 +5,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { IoSunnyOutline } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-
+import Badge from '@mui/material/Badge';
 
 
 function Header() {
@@ -40,8 +40,10 @@ function Header() {
             <input className='search-input' type="text" placeholder='Ara'/>
             <div>
                 {!theme ? <IoSunnyOutline className='icon' onClick={changeTheme}/> : <FaMoon className='icon'  onClick={changeTheme}/>}
-                <CiShoppingCart className='icon'/>
                 
+                <Badge badgeContent={4} color="secondary">
+                    <CiShoppingCart style={{marginRight:"5px"}} className='icon'/>
+                </Badge>
                 {/* */}
             </div>
         </div>

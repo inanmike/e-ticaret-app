@@ -5,6 +5,7 @@ import { setSelectedProduct } from '../redux/slices/productSlice';
 import '../css/Product.css';
 import { MdOutlinePlusOne } from "react-icons/md";
 import { TbExposureMinus1 } from "react-icons/tb";
+import { addToBasket } from '../redux/slices/basketSlice';
 
 
 function ProductDetails() {
@@ -24,6 +25,19 @@ function ProductDetails() {
         if(count > 0){
             setCount(count - 1);
         }
+    }
+
+    const addBasket = () => {
+        const payload = {
+            id,
+            price,
+            images,
+            title,
+            description,
+            count,
+        }
+        console.log("Sepete eklendi: ", selectedProduct);
+        dispatch(addToBasket(payload))
     }
 
     useEffect(() =>{
@@ -57,7 +71,9 @@ function ProductDetails() {
             </div>
 
             <div style={{marginTop:"20px"}}>
-                <button className='card-button'>Sepete Ekle</button>
+                <button
+                onClick={addBasket}
+                className='card-button'>Sepete Ekle</button>
             </div>
         </div>
     </div>
