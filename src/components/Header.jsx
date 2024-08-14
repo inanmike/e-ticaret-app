@@ -6,15 +6,18 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setDrawer, calculateBasket } from '../redux/slices/basketSlice';
 
 function Header() {
 
     const [theme, setTheme] = useState(true);
     //const [cardTheme, setCardTheme] = useState(true);
-
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
+    const {products} = useSelector((store) => store.basket);
+    const basketLength = products.length;
     const changeTheme = () => {
         const root = document.getElementById('root');
         setTheme(!theme);
@@ -41,7 +44,7 @@ function Header() {
             <div>
                 {!theme ? <IoSunnyOutline className='icon' onClick={changeTheme}/> : <FaMoon className='icon'  onClick={changeTheme}/>}
                 
-                <Badge badgeContent={4} color="secondary">
+                <Badge onClick={() => dispatch(setDrawer())} badgeContent={basketLength} color="secondary">
                     <CiShoppingCart style={{marginRight:"5px"}} className='icon'/>
                 </Badge>
                 {/* */}

@@ -7,7 +7,7 @@ const initialState= {
     loading: false
 }
 
-const BASE_URL = 'https://api.escuelajs.co/api/v1';
+const BASE_URL = 'https://fakestoreapi.com';
 
 export const getAllProducts = createAsyncThunk("getAllProduct", async() =>{
     const response = await axios.get(`${BASE_URL}/products`);

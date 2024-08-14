@@ -5,14 +5,14 @@ import { setSelectedProduct } from '../redux/slices/productSlice';
 import '../css/Product.css';
 import { MdOutlinePlusOne } from "react-icons/md";
 import { TbExposureMinus1 } from "react-icons/tb";
-import { addToBasket } from '../redux/slices/basketSlice';
+import { addToBasket, calculateBasket } from '../redux/slices/basketSlice';
 
 
 function ProductDetails() {
 
     const {id} = useParams();
     const {products, selectedProduct} = useSelector((store) => store.product)
-    const {price, images, title, description} = selectedProduct;
+    const {price, image, title, description} = selectedProduct;
 
     const [count, setCount] = useState(0);
     const dispatch = useDispatch();
@@ -31,13 +31,14 @@ function ProductDetails() {
         const payload = {
             id,
             price,
-            images,
+            image,
             title,
             description,
             count,
         }
         console.log("Sepete eklendi: ", selectedProduct);
         dispatch(addToBasket(payload))
+        dispatch(calculateBasket())
     }
 
     useEffect(() =>{
@@ -55,7 +56,7 @@ function ProductDetails() {
   return (
     <div className='container'>
         <div className='row-pd-img'>
-            <img src={images} alt={title} />
+            <img src={image} alt={title} />
         </div>
         <div className='row-pd-desc'>
             <h2 style={{textAlign:"center"}}>{title}</h2>

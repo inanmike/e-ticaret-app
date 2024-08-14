@@ -3,7 +3,7 @@ import '../css/Product.css'
 import { useNavigate } from 'react-router-dom';
 
 function Product({product}) {
-    const {id, price, images, title, description} = product;
+    const {id, price, image, title, description} = product;
     console.log(product);
 
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Product({product}) {
 
   return (
     <div id='card' className='card'>
-        <img className='image' src={images[0]} alt={title} />
+        <img className='image' src={image} alt={title} />
         <div>
           <h6 style={{textAlign:'center', height:'15px'}}>{title}</h6>
           <h4 style={{marginLeft:'8px'}}>Fiyat: {price}</h4>
